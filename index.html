@@ -1,1 +1,1645 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>DrBarber | Barber Elbląg</title>
+
+<meta name="description" content="DrBarber – profesjonalny barber w Elblągu. Strzyżenie, broda i pielęgnacja.">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap');
+
+:root{
+    --navy:#071322;
+    --navy2:#0b1b2d;
+    --navy3:#10263c;
+    --gray:#aeb8c2;
+    --light:#e9edf0;
+    --line:rgba(185,198,210,.18);
+    --accent:#c9d0d6;
+    --max:1180px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--navy);
+    color:var(--light);
+    font-family:"DM Sans",Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    background-image:radial-gradient(#fff .7px,transparent .7px);
+    background-size:5px 5px;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    height:78px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:20;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 max(24px,calc((100vw - var(--max))/2));
+
+    background:rgba(7,19,34,.82);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid var(--line);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    font-size:21px;
+    font-weight:700;
+    letter-spacing:.3px;
+}
+
+.brand span:last-child span{
+    font-weight:400;
+    color:#9eabb6;
+}
+
+.brand-mark{
+    width:34px;
+    height:34px;
+
+    border:1px solid #8896a2;
+
+    display:grid;
+    place-items:center;
+
+    font-family:Oswald,sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    font-size:13px;
+    color:#b9c3cb;
+}
+
+nav a{
+    transition:.25s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.nav-cta{
+    border:1px solid #687886;
+    padding:10px 16px;
+    color:#fff!important;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:150px 24px 80px;
+
+    isolation:isolate;
+}
+
+.hero:after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    z-index:-2;
+
+    background:
+        radial-gradient(
+            circle at 70% 48%,
+            rgba(44,72,98,.36),
+            transparent 38%
+        ),
+        linear-gradient(
+            90deg,
+            #071322 0%,
+            rgba(7,19,34,.92) 48%,
+            rgba(7,19,34,.72) 100%
+        );
+}
+
+.hero-logo{
+    position:absolute;
+
+    z-index:-1;
+
+    right:8%;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:min(520px,52vw);
+    height:min(520px,52vw);
+
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+
+    opacity:.16;
+
+    filter:
+        grayscale(1)
+        contrast(1.1)
+        brightness(1.7);
+}
+
+.hero-content{
+    width:var(--max);
+    margin:auto;
+}
+
+.eyebrow{
+    color:#8e9ba7;
+
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.hero h1{
+    font-family:Oswald,Arial,sans-serif;
+
+    text-transform:uppercase;
+
+    font-size:clamp(74px,12vw,158px);
+
+    line-height:.88;
+
+    letter-spacing:2px;
+
+    margin:20px 0 25px;
+}
+
+.hero h1 span{
+    color:#9da9b3;
+}
+
+.hero-text{
+    font-size:18px;
+
+    max-width:470px;
+
+    color:#b6c0c8;
+
+    line-height:1.65;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+
+    margin-top:34px;
+}
+
+.btn{
+    padding:14px 22px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    background:#d7dde1;
+    color:#071322;
+}
+
+.btn-primary:hover{
+    background:white;
+    transform:translateY(-2px);
+}
+
+.btn-ghost{
+    border:1px solid #63727f;
+    color:#dce1e5;
+}
+
+.btn-ghost:hover{
+    border-color:#b9c2c9;
+}
+
+.hero-info{
+    display:flex;
+
+    gap:35px;
+
+    margin-top:65px;
+}
+
+.hero-info div{
+    display:flex;
+    flex-direction:column;
+
+    border-left:1px solid #435463;
+
+    padding-left:15px;
+}
+
+.hero-info strong{
+    font-family:Oswald;
+
+    font-size:23px;
+}
+
+.hero-info small{
+    font-size:10px;
+
+    color:#85939f;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-top:4px;
+}
+
+
+/* =========================
+   SEKCJE
+========================= */
+
+.section{
+    max-width:var(--max);
+
+    margin:auto;
+
+    padding:125px 24px;
+}
+
+.section-label{
+    color:#8e9ba7;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+}
+
+
+/* =========================
+   O NAS
+========================= */
+
+.about{
+    border-top:1px solid var(--line);
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:90px;
+
+    margin-top:45px;
+}
+
+h2{
+    font-family:Oswald;
+
+    font-size:clamp(42px,5vw,68px);
+
+    line-height:1.03;
+
+    text-transform:uppercase;
+}
+
+h2 span{
+    color:#8997a3;
+}
+
+.about-copy{
+    padding-top:8px;
+
+    color:#9daab5;
+
+    line-height:1.85;
+
+    font-size:15px;
+
+    max-width:530px;
+}
+
+.about-copy p+p{
+    margin-top:18px;
+}
+
+.location-chip{
+    display:inline-block;
+
+    margin-top:30px;
+
+    border:1px solid var(--line);
+
+    padding:10px 14px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#bfc8cf;
+}
+
+.location-chip span{
+    margin:0 9px;
+
+    color:#657582;
+}
+
+
+/* =========================
+   CENNIK
+========================= */
+
+.pricing{
+    border-top:1px solid var(--line);
+}
+
+.section-heading{
+    margin:42px 0 48px;
+
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.section-heading p{
+    color:#83919c;
+
+    font-size:13px;
+}
+
+.price-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+}
+
+.price-card{
+    min-height:330px;
+
+    padding:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0c1e30,
+            #091725
+        );
+
+    border:1px solid var(--line);
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:.3s;
+}
+
+.price-card:hover{
+    transform:translateY(-5px);
+
+    border-color:#536575;
+}
+
+.price-card.featured{
+    background:
+        linear-gradient(
+            145deg,
+            #11283e,
+            #0b1b2d
+        );
+
+    border-color:#5a6b7b;
+}
+
+.card-number{
+    font-family:Oswald;
+
+    color:#596a79;
+
+    font-size:13px;
+
+    margin-bottom:45px;
+}
+
+.price-card h3{
+    font-family:Oswald;
+
+    font-size:27px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+}
+
+.price-card p{
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:#83919d;
+
+    margin-top:12px;
+
+    max-width:300px;
+}
+
+.price{
+    font-family:Oswald;
+
+    font-size:42px;
+
+    margin-top:auto;
+}
+
+.price small{
+    font-family:"DM Sans";
+
+    font-size:13px;
+
+    color:#84919d;
+}
+
+.popular{
+    position:absolute;
+
+    right:18px;
+
+    top:18px;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    color:#9ba8b2;
+}
+
+
+/* =========================
+   CYTAT
+========================= */
+
+.quote-section{
+    max-width:1000px;
+
+    margin:20px auto 80px;
+
+    padding:90px 30px;
+
+    text-align:center;
+
+    border-top:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+}
+
+.quote-mark{
+    font-family:Georgia;
+
+    font-size:75px;
+
+    color:#657583;
+
+    height:55px;
+}
+
+.quote-section p{
+    font-family:Oswald;
+
+    text-transform:uppercase;
+
+    font-size:clamp(25px,4vw,42px);
+
+    line-height:1.15;
+}
+
+
+/* =========================
+   OPINIE
+========================= */
+
+.reviews{
+    border-top:1px solid var(--line);
+}
+
+.review-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:50px;
+}
+
+.review{
+    padding:30px;
+
+    background:#0b1a2a;
+
+    border:1px solid var(--line);
+}
+
+.stars{
+    letter-spacing:4px;
+
+    font-size:12px;
+
+    color:#c4ccd2;
+
+    margin-bottom:22px;
+}
+
+.review p{
+    color:#9aa7b2;
+
+    line-height:1.75;
+
+    font-size:14px;
+
+    min-height:100px;
+}
+
+.review strong{
+    font-size:12px;
+
+    color:#d7dde1;
+}
+
+
+/* =========================
+   UMÓW WIZYTĘ
+========================= */
+
+.booking{
+    position:relative;
+
+    overflow:hidden;
+
+    border-top:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+    min-height:500px;
+
+    display:flex;
+
+    align-items:center;
+}
+
+.booking-bg{
+    position:absolute;
+
+    inset:0;
+
+    opacity:.09;
+
+    background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFcAAAA9CAIAAABXxWIHAAAQAE");
+
+    background-repeat:no-repeat;
+
+    background-position:80% center;
+
+    background-size:480px;
+
+    filter:grayscale(1) brightness(2);
+}
+
+.booking:after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #071322 20%,
+            rgba(7,19,34,.86) 55%,
+            rgba(7,19,34,.5)
+        );
+}
+
+.booking-content{
+    position:relative;
+
+    z-index:1;
+
+    max-width:var(--max);
+
+    width:100%;
+
+    margin:auto;
+
+    padding:90px 24px;
+}
+
+.booking h2{
+    margin:18px 0;
+}
+
+.booking-content>p:not(.eyebrow){
+    color:#94a1ab;
+
+    font-size:14px;
+
+    margin-bottom:30px;
+}
+
+.phone{
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    font-family:Oswald;
+
+    font-size:clamp(30px,5vw,58px);
+
+    width:max-content;
+}
+
+.phone b{
+    font-family:"DM Sans";
+
+    font-size:24px;
+
+    font-weight:400;
+
+    transition:.25s;
+}
+
+.phone:hover b{
+    transform:translateX(8px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    max-width:var(--max);
+
+    margin:auto;
+
+    padding:50px 24px 35px;
+
+    display:grid;
+
+    grid-template-columns:1fr auto auto;
+
+    gap:35px;
+
+    align-items:center;
+}
+
+.footer-brand{
+    font-size:22px;
+
+    font-weight:700;
+}
+
+.footer-brand span{
+    font-weight:400;
+
+    color:#9eabb6;
+}
+
+footer p,
+footer a{
+    font-size:12px;
+
+    color:#81909c;
+}
+
+footer a:hover{
+    color:white;
+}
+
+.copyright{
+    grid-column:1/-1;
+
+    padding-top:25px;
+
+    border-top:1px solid var(--line);
+
+    font-size:10px;
+
+    color:#566672;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .navbar{
+        height:68px;
+    }
+
+    nav a:not(.nav-cta){
+        display:none;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero-logo{
+        width:90vw;
+
+        height:90vw;
+
+        right:5%;
+
+        opacity:.11;
+    }
+
+    .hero-content{
+        position:relative;
+    }
+
+    .hero-info{
+        gap:16px;
+
+        flex-wrap:wrap;
+
+        margin-top:50px;
+    }
+
+    .hero-info small{
+        font-size:8px;
+    }
+
+    .about-grid,
+    .price-grid,
+    .review-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .about-grid{
+        gap:35px;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .section-heading p{
+        margin-top:14px;
+    }
+
+    .price-card{
+        min-height:290px;
+    }
+
+    .review p{
+        min-height:auto;
+
+        margin-bottom:25px;
+    }
+
+    footer{
+        grid-template-columns:1fr 1fr;
+    }
+
+    footer p{
+        display:none;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:70px;
+    }
+
+    .hero-text{
+        font-size:15px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .hero-info{
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .phone{
+        font-size:30px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<header class="navbar">
+
+    <a class="brand" href="#start">
+
+        <span class="brand-mark">
+            DR
+        </span>
+
+        <span>
+            Dr<span>Barber</span>
+        </span>
+
+    </a>
+
+
+    <nav>
+
+        <a href="#o-nas">
+            O nas
+        </a>
+
+        <a href="#cennik">
+            Cennik
+        </a>
+
+        <a href="#opinie">
+            Opinie
+        </a>
+
+        <a
+            class="nav-cta"
+            href="tel:467678987"
+        >
+            Umów wizytę
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section
+    class="hero"
+    id="start"
+>
+
+
+    <!-- LOGO W TLE -->
+
+    <div
+        class="hero-logo"
+        style="
+        background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFcAAAA9CAIAAABXxWIHAAAQAE');
+        "
+    ></div>
+
+
+    <div class="hero-content">
+
+
+        <p class="eyebrow">
+            BARBER SHOP • ELBLĄG
+        </p>
+
+
+        <h1>
+            Dr<span>Barber</span>
+        </h1>
+
+
+        <p class="hero-text">
+
+            Klasyczny styl.
+            Precyzyjne cięcie.
+            Charakter, który widać.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                class="btn btn-primary"
+                href="tel:467678987"
+            >
+                Umów wizytę
+            </a>
+
+
+            <a
+                class="btn btn-ghost"
+                href="#cennik"
+            >
+                Zobacz cennik
+            </a>
+
+        </div>
+
+
+        <div class="hero-info">
+
+
+            <div>
+
+                <strong>
+                    60 zł
+                </strong>
+
+                <small>
+                    strzyżenie klasyczne
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    90 zł
+                </strong>
+
+                <small>
+                    strzyżenie + broda
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    120 zł
+                </strong>
+
+                <small>
+                    pielęgnacja
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     O NAS
+========================= -->
+
+<section
+    class="section about"
+    id="o-nas"
+>
+
+
+    <div class="section-label">
+        01 / O NAS
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div>
+
+            <h2>
+
+                Miejsce,
+                w którym
+
+                <br>
+
+                <span>
+                    styl ma znaczenie.
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="about-copy">
+
+
+            <p>
+
+                DrBarber to barber shop stworzony
+                dla osób, które cenią dokładność,
+                dobrą atmosferę i ponadczasowy styl.
+
+            </p>
+
+
+            <p>
+
+                Nasza historia zaczęła się od prostej
+                pasji — zamiłowania do klasycznego
+                barberingu i dbałości o każdy detal.
+
+                Dziś tworzymy miejsce, do którego możesz
+                wpaść nie tylko po świeże cięcie,
+                ale również po chwilę dla siebie.
+
+            </p>
+
+
+            <div class="location-chip">
+
+                ELBLĄG
+
+                <span>•</span>
+
+                BARBER SHOP
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CENNIK
+========================= -->
+
+<section
+    class="section pricing"
+    id="cennik"
+>
+
+
+    <div class="section-label">
+        02 / CENNIK
+    </div>
+
+
+    <div class="section-heading">
+
+
+        <h2>
+
+            Prosto.
+
+            <span>
+                Konkretnie.
+            </span>
+
+        </h2>
+
+
+        <p>
+            Wybierz usługę dopasowaną
+            do swojego stylu.
+        </p>
+
+
+    </div>
+
+
+
+    <div class="price-grid">
+
+
+        <!-- 60 ZŁ -->
+
+        <article class="price-card">
+
+
+            <div class="card-number">
+                01
+            </div>
+
+
+            <h3>
+                Strzyżenie klasyczne
+            </h3>
+
+
+            <p>
+
+                Precyzyjne strzyżenie dopasowane
+                do kształtu twarzy i Twojego stylu.
+
+            </p>
+
+
+            <div class="price">
+
+                60
+
+                <small>
+                    zł
+                </small>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- 90 ZŁ -->
+
+        <article
+            class="price-card featured"
+        >
+
+
+            <div class="popular">
+                NAJCZĘŚCIEJ WYBIERANE
+            </div>
+
+
+            <div class="card-number">
+                02
+            </div>
+
+
+            <h3>
+                Strzyżenie + broda
+            </h3>
+
+
+            <p>
+
+                Kompletna stylizacja włosów
+                i brody — jeden spójny,
+                świeży look.
+
+            </p>
+
+
+            <div class="price">
+
+                90
+
+                <small>
+                    zł
+                </small>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- 120 ZŁ -->
+
+        <article class="price-card">
+
+
+            <div class="card-number">
+                03
+            </div>
+
+
+            <h3>
+                Pielęgnacja
+            </h3>
+
+
+            <p>
+
+                Rozbudowana usługa pielęgnacyjna
+                dla włosów i skóry głowy.
+
+            </p>
+
+
+            <div class="price">
+
+                120
+
+                <small>
+                    zł
+                </small>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CYTAT
+========================= -->
+
+<section class="quote-section">
+
+
+    <div class="quote-mark">
+        “
+    </div>
+
+
+    <p>
+
+        Dobry barber nie zmienia
+        Twojego stylu.
+        Pomaga Ci go podkreślić.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =========================
+     OPINIE
+========================= -->
+
+<section
+    class="section reviews"
+    id="opinie"
+>
+
+
+    <div class="section-label">
+        03 / OPINIE
+    </div>
+
+
+    <div class="section-heading">
+
+
+        <h2>
+
+            Co mówią
+
+            <span>
+                klienci?
+            </span>
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="review-grid">
+
+
+        <article class="review">
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <p>
+
+                „Świetna atmosfera i bardzo
+                dokładne cięcie. Wyszedłem
+                dokładnie z taką fryzurą,
+                jaką chciałem.”
+
+            </p>
+
+
+            <strong>
+                — Michał
+            </strong>
+
+
+        </article>
+
+
+
+        <article class="review">
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <p>
+
+                „Bardzo profesjonalne podejście.
+                Broda ogarnięta perfekcyjnie,
+                na pewno wrócę.”
+
+            </p>
+
+
+            <strong>
+                — Kamil
+            </strong>
+
+
+        </article>
+
+
+
+        <article class="review">
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <p>
+
+                „Fajne miejsce, dobry klimat
+                i konkretna robota. Polecam
+                każdemu, kto szuka barbera
+                w Elblągu.”
+
+            </p>
+
+
+            <strong>
+                — Adrian
+            </strong>
+
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     UMÓW WIZYTĘ
+========================= -->
+
+<section class="booking">
+
+
+    <div class="booking-bg"></div>
+
+
+    <div class="booking-content">
+
+
+        <p class="eyebrow">
+            CZAS NA NOWY LOOK?
+        </p>
+
+
+        <h2>
+
+            Umów swoją
+
+            <br>
+
+            <span>
+                wizytę.
+            </span>
+
+        </h2>
+
+
+        <p>
+            Zadzwoń i zarezerwuj termin
+            w DrBarber.
+        </p>
+
+
+        <a
+            class="phone"
+            href="tel:467678987"
+        >
+
+            <span>
+                467 678 987
+            </span>
+
+            <b>
+                →
+            </b>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+    <div class="footer-brand">
+
+        Dr<span>
+            Barber
+        </span>
+
+    </div>
+
+
+    <p>
+        Barber shop • Elbląg
+    </p>
+
+
+    <a href="tel:467678987">
+        467 678 987
+    </a>
+
+
+    <div class="copyright">
+
+        © 2026 DrBarber.
+        Wszelkie prawa zastrzeżone.
+
+    </div>
+
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================
+   ANIMACJE
+========================= */
+
+
+const observer =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach(
+                entry => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.style.opacity =
+                            "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:0.12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(
+        ".price-card, .review, .about-copy, .section-heading"
+    )
+    .forEach(
+        el => {
+
+            el.style.opacity = "0";
+
+            el.style.transform =
+                "translateY(18px)";
+
+            el.style.transition =
+                "opacity .7s ease, transform .7s ease";
+
+            observer.observe(el);
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+</html>
